@@ -14,8 +14,7 @@ import java.lang.reflect.Field;
  * @Descrition
  **/
 @Component
-public class ReferenceHandler implements BeanPostProcessor {
-
+public class ReferenceInitializer implements BeanPostProcessor {
 
     @Autowired
     private RemoteHandler remoteHandler;

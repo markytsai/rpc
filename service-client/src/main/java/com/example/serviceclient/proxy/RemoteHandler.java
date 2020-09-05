@@ -22,7 +22,7 @@ public class RemoteHandler implements InvocationHandler {
     private RpcTransport rpcTransport;
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    public Object invoke(Object proxy, Method method, Object[] args) {
         RpcRequest rpcRequest = new RpcRequest();
         rpcRequest.setClassName(method.getDeclaringClass().getName());
         rpcRequest.setMethodName(method.getName());
@@ -31,9 +31,8 @@ public class RemoteHandler implements InvocationHandler {
         return rpcTransport.transport(rpcRequest);
     }
 
-    public Object getProxy(Field field) {
-        return Proxy.newProxyInstance(field.getType().getClassLoader(),
-                new Class<?>[]{field.getType()}, this);
+    public <T> T getProxy(Field field) {
+        return (T) Proxy.newProxyInstance(field.getType().getClassLoader(), new Class<?>[]{field.getType()}, this);
 
     }
 }

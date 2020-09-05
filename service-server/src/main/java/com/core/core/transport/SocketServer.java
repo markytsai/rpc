@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 /**
  * @Author caizhenya
  * @Date 2020/8/16
- * @Descrition
+ * @Descrition 启动server监听
  **/
 @Component
 public class SocketServer implements ApplicationListener<ContextRefreshedEvent> {

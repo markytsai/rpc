@@ -10,10 +10,10 @@ import java.lang.reflect.Method;
 /**
  * @Author caizhenya
  * @Date 2020/8/16
- * @Descrition
+ * @Descrition  注册服务
  **/
 @Component
-public class InitialMerdiator implements BeanPostProcessor {
+public class ServiceRegister implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
@@ -24,7 +24,7 @@ public class InitialMerdiator implements BeanPostProcessor {
                 BeanMethod beanMethod = new BeanMethod();
                 beanMethod.setBean(bean);
                 beanMethod.setMethod(method);
-                Mediator.ROUTING.put(routingKey, beanMethod);
+                RegisterBase.ROUTING.put(routingKey, beanMethod);
             }
         }
         return bean;

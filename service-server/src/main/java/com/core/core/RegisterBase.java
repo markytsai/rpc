@@ -9,24 +9,24 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author caizhenya
  * @Date 2020/8/16
- * @Descrition
+ * @Descrition 模拟远程调用，暂时没有注册中心
  **/
-public class Mediator {
+public class RegisterBase {
 
     /** 用来存储发布的服务的实例(服务调用的路由) */
     public static Map<String, BeanMethod> ROUTING = new ConcurrentHashMap<String, BeanMethod>();
 
     /** 单例模式创建该代理层实例 */
-    private volatile static Mediator instance;
+    private volatile static RegisterBase instance;
 
-    private Mediator() {
+    private RegisterBase() {
     }
 
-    public static Mediator getInstance() {
+    public static RegisterBase getInstance() {
         if (instance == null) {
-            synchronized (Mediator.class) {
+            synchronized (RegisterBase.class) {
                 if (instance == null) {
-                    instance = new Mediator();
+                    instance = new RegisterBase();
                 }
             }
         }

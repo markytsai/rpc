@@ -1,6 +1,6 @@
 package com.core.core.transport;
 
-import com.core.core.Mediator;
+import com.core.core.RegisterBase;
 import com.core.req.RpcRequest;
 
 import java.io.ObjectInputStream;
@@ -30,8 +30,8 @@ public class ProcessorHandler implements Runnable {
             RpcRequest rpcRequest = (RpcRequest) inputStream.readObject();
 
             // 中间代理执行目标方法
-            Mediator mediator = Mediator.getInstance();
-            Object response = mediator.processor(rpcRequest);
+            RegisterBase registerBase = RegisterBase.getInstance();
+            Object response = registerBase.processor(rpcRequest);
             System.out.println("服务端的执行结果：" + response);
 
             outputStream = new ObjectOutputStream(socket.getOutputStream());
