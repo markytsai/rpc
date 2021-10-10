@@ -30,7 +30,7 @@ public class SocketServer implements ApplicationListener<ContextRefreshedEvent> 
             serverSocket = new ServerSocket(8888);
             while (true) {
                 Socket accept = serverSocket.accept();
-                System.out.println("Accept : " + serverSocket.getInetAddress() + ":"+ serverSocket.getLocalPort());
+                System.out.println("Accept : " + accept.getInetAddress() + ":"+ accept.getLocalPort());
                 executorService.execute(new ProcessorHandler(accept));
             }
         } catch (IOException e) {

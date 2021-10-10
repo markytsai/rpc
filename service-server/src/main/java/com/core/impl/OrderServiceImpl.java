@@ -15,7 +15,7 @@ public class OrderServiceImpl implements ApplyOrderSerivce {
     public ApplyOrder apply(String applicant) {
         ApplyOrder applyOrder = new ApplyOrder();
         applyOrder.setApplicant(applicant);
-        applyOrder.setApplyOrderId("111111111111111111");
+        applyOrder.setApplyOrderId("2222" + applicant);
         return applyOrder;
     }
 
